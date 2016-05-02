@@ -17,12 +17,12 @@ namespace Hexagon
 
         private void PaintBoard(object sender, PaintEventArgs e)
         {
-            DrawingPoint center = new DrawingPoint(doubleBufferedPanel_Board.Width / 2, doubleBufferedPanel_Board.Height/2);
+            vector2 center = new vector2(doubleBufferedPanel_Board.Width / 2, doubleBufferedPanel_Board.Height/2);
             int radius = _presentionModel.Radius;
             Pen pen = new Pen(Color.Aqua, 2);
             Point[] points = new Point[6];
 
-            foreach (DrawingPoint dp in _presentionModel.GetHexagons())
+            foreach (vector2 dp in _presentionModel.GetHexagons())
             {
                 for (int i = 0; i < 6; i++)
                 {

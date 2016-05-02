@@ -19,7 +19,7 @@ namespace Hexagon
             }
         }
 
-        public List<DrawingPoint> GetHexagons()
+        public List<vector2> GetHexagons()
         {
             return _model.GetHexagons();
         }

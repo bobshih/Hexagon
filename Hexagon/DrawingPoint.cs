@@ -1,11 +1,12 @@
 ﻿
+using System;
 namespace Hexagon
 {
-    class DrawingPoint
+    class vector2
     {
         double _x, _y;
 
-        public DrawingPoint(double x, double y)
+        public vector2(double x, double y)
         {
             _x = x;
             _y = y;
@@ -35,24 +36,34 @@ namespace Hexagon
             }
         }
 
-        static public DrawingPoint operator +(DrawingPoint left,DrawingPoint right)
+        static public vector2 operator +(vector2 left, vector2 right)
         {
-            return new DrawingPoint(left.X + right.X, left.Y + right.Y);
+            return new vector2(left.X + right.X, left.Y + right.Y);
         }
 
-        static public DrawingPoint operator *(DrawingPoint left, double right)
+        static public vector2 operator -(vector2 left, vector2 right)
         {
-            return new DrawingPoint(left.X * right, left.Y * right);
+            return new vector2(left.X - right.X, left.Y - right.Y);
         }
 
-        static public DrawingPoint operator *(double left, DrawingPoint right)
+        static public vector2 operator *(vector2 left, double right)
         {
-            return new DrawingPoint(right.X * left, right.Y * left);
+            return new vector2(left.X * right, left.Y * right);
         }
 
-        static public DrawingPoint operator /(DrawingPoint left, double right)
+        static public vector2 operator *(double left, vector2 right)
         {
-            return new DrawingPoint(left.X / right, left.Y / right);
+            return new vector2(right.X * left, right.Y * left);
+        }
+
+        static public vector2 operator /(vector2 left, double right)
+        {
+            return new vector2(left.X / right, left.Y / right);
+        }
+
+        public double length()
+        {
+            return Math.Sqrt(_x * _x + _y * _y);
         }
     }
 }
